@@ -12,6 +12,9 @@ let textContainer = document.getElementById("textContainer");
 // }
 let btn = document.getElementById("btn");
 btn.addEventListener("click", showChapter);
+let keySound = new Audio("assets/audio/key_sound.m4a");
+keySound.preload;
+keySound.volume = 0.07;
 
 async function showChapter() {
   btn.remove();
@@ -32,8 +35,7 @@ async function showChapter() {
 
 async function animateText(str, elem, delay) {
   for (let i = 0; i < str.length; i++) {
-    let keySound = new Audio("assets/audio/key_sound.m4a");
-    keySound.volume = 0.07;
+    keySound.currentTime = 0;
     keySound.play();
     elem.innerHTML = elem.innerHTML + str.charAt(i);
     await sleep(delay);
