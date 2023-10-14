@@ -35,8 +35,8 @@ async function showChapter() {
 
 async function animateText(str, elem, delay) {
   for (let i = 0; i < str.length; i++) {
-    keySound.currentTime = 0;
-    keySound.play();
+    var keyClone = keySound.cloneNode();
+    keyClone.play();
     elem.innerHTML = elem.innerHTML + str.charAt(i);
     await sleep(delay);
   }
