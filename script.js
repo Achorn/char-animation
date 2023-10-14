@@ -21,7 +21,7 @@ async function showChapter() {
   await animateText("Your Time", titleDisplay);
   await sleep(2000);
   let restartBtn = document.createElement("button");
-  restartBtn.innerHTML = "Restart";
+  restartBtn.innerHTML = "RESTART";
   restartBtn.addEventListener("click", () => {
     display.innerHTML = "";
     titleDisplay.innerHTML = "";
