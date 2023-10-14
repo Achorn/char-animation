@@ -15,10 +15,9 @@ btn.addEventListener("click", showChapter);
 
 async function showChapter() {
   btn.remove();
-  await animateText("Chapter: 01", display);
-  console.log("then");
+  await animateText("Chapter: 01", display, 110);
   await sleep(2000);
-  await animateText("Your Time", titleDisplay);
+  await animateText("Your Time", titleDisplay, 150);
   await sleep(2000);
   let restartBtn = document.createElement("button");
   restartBtn.innerHTML = "RESTART";
@@ -31,14 +30,13 @@ async function showChapter() {
   textContainer.appendChild(restartBtn);
 }
 
-async function animateText(str, elem) {
+async function animateText(str, elem, delay) {
   for (let i = 0; i < str.length; i++) {
-    elem.innerHTML = elem.innerHTML + str.charAt(i);
-    keySound = new Audio("assets/audio/key_sound.m4a");
+    let keySound = new Audio("assets/audio/key_sound.m4a");
     keySound.volume = 0.07;
     keySound.play();
-    await sleep(92);
+    elem.innerHTML = elem.innerHTML + str.charAt(i);
+    await sleep(delay);
   }
 }
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
-var timeBetween = 100;
